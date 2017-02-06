@@ -8,22 +8,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.florian.aubergine.MainActivity">
+    tools:context="com.example.florian.aubergine.View.MainActivity">
 
-    <GridLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
+        <EditText android:id="@+id/identifiant"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="identifiant" />
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="login" />
+    </LinearLayout>
 
-        <EditText
-            android:layout_width="138dp"
-            android:layout_height="63dp"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_row="0"
-            android:layout_column="0" />
-    </GridLayout>
+
 </RelativeLayout>
