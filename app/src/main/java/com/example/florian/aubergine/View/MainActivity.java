@@ -25,9 +25,10 @@ public class MainActivity extends AppCompatActivity {
        findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               System.out.println("bla ");
                TextView txtV = (TextView)findViewById(R.id.identifiant) ;
                String authLogin = txtV.getText().toString();
-               UtilisateurModel uM = cController.login();
+               UtilisateurModel uM = cController.login("", null);
 
            }
 
