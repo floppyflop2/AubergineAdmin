@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.loginButton).setOnClickListener(login);
+
+
     }
 
     @Override
@@ -26,21 +30,18 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
     }
 
-    public void login(){
-       findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               System.out.println("bla ");
+    private View.OnClickListener login = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            System.out.println("bla ");
 
-               TextView txtV = (TextView)findViewById(R.id.identifiant) ;
-               txtV.setText("bla");
-               String authLogin = txtV.getText().toString();
-               UtilisateurModel uM = cController.login("", null);
+            TextView txtV = (TextView) findViewById(R.id.identifiant);
+            txtV.setText("bla");
+            String authLogin = txtV.getText().toString();
+            UtilisateurModel uM = cController.login("", null);
 
-           }
+        }
+    };
 
 
-       });
-
-    }
 }
