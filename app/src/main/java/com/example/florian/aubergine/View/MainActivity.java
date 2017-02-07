@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
            @Override
            public void onClick(View view) {
                System.out.println("bla ");
+
                TextView txtV = (TextView)findViewById(R.id.identifiant) ;
+               txtV.setText("bla");
                String authLogin = txtV.getText().toString();
                UtilisateurModel uM = cController.login("", null);
 
