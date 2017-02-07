@@ -11,13 +11,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import org.apache.http.*;
+
 
 import com.example.florian.aubergine.Model.DalCommunication;
 import com.example.florian.aubergine.Model.UtilisateurModel;
 import com.example.florian.aubergine.View.MainActivity;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.Date;
@@ -53,7 +56,9 @@ public class UserControllerImplementation implements UserController{
     @Override
     public UtilisateurModel login(String authentifiant, Date dateN) {
        String demand = "login";
-       dalCommunication.onGetRequest(queue, demand);
+        JSONObject response = dalCommunication.onGetRequest(queue, demand);
+        System.out.println(response.toString()+"coucou");
 
+        return null;
     }
 }

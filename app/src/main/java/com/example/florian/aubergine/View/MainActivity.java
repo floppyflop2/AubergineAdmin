@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
     public void login(){
        findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
            @Override

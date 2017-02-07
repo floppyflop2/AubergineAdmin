@@ -4,7 +4,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+
+import org.json.JSONObject;
 
 /**
  * Created by Florian on 06/02/2017.
@@ -12,33 +16,36 @@ import com.android.volley.toolbox.StringRequest;
 
 public class DalCommunication {
 
-    public String url;
+    private String url;
+    private static JSONObject resp ;// trouver solution pour mettre autrement que static mais y accéder depuis onget
 
-    public DalCommunication(String url){
+    public DalCommunication(String url) {
         this.url = url;
     }
 
     // Add the request to the RequestQueue.
-    public String onGetRequest(RequestQueue queue, String method){
+    public JSONObject onGetRequest(RequestQueue queue, String method) {
         // Request a string response from the provided URL.
-        StringRequest reqString = new StringRequest(Request.Method.GET, url+method,
-                new Response.Listener<String>(){
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url+method, null, new Response.Listener<JSONObject>() {
+
                     @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        System.out.println("Response is: "+ response.substring(0,500));
+                    public void onResponse(JSONObject response) {
+                        resp = response;
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
 
                     }
+                });
 
 
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //  mTextView.setText("That didn't work!");
-            }
-        });
-
-        queue.add(reqString);
+       // queue.add(reqObj);
+        return resp;
     }
 
 

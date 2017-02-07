@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp">
         <EditText android:id="@+id/identifiant"
             android:layout_weight="1"
             android:layout_width="0dp"
