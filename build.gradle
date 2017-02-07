@@ -3,9 +3,12 @@
 buildscript {
     repositories {
         jcenter()
+        maven { url "http://dl.bintray.com/android/android-utils" }
+        maven { url "http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/"}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
+
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

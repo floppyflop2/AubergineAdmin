@@ -9,19 +9,19 @@ import com.example.florian.aubergine.Model.UtilisateurModel;
  */
 
 public class Builder extends Application{
-    UtilisateurModel mModel;
+    UtilisateurModel uModel;
     @Override
     public void onCreate() {
         super.onCreate();
         // On passe le contexte de l'application et non d'une activité
         // sa durée de vie est donc garantie (normalement)
-        mModel = new UtilisateurModel(this);
+        uModel = new UtilisateurModel();
     }
 
     public UtilisateurModel getModel(){
         // TODO test si le truc ne devient pas null quand la mémoire est récupérée
         // voir http://www.developerphil.com/dont-store-data-in-the-application-object/
-        return mModel;
+        return uModel;
     }
 
     public Context getContext(){

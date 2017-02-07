@@ -1,5 +1,6 @@
 
 package com.example.florian.aubergine.Model;
+
 import android.app.Application;
 import android.content.Context;
 import android.database.Cursor;
@@ -15,12 +16,12 @@ import java.util.Date;
 
 public class UtilisateurModel implements Serializable {
 
-        String nom;
-        String prenom;
-        String lieuNaissance;
-        Date dateNaissance;
-        String matricule;
-        String type; // on fait un enum ?
+    private String nom;
+    private String prenom;
+    private String lieuNaissance;
+    private Date dateNaissance;
+    private String matricule;
+    private String type; // on fait un enum ?
 
 
     public String getNom() {
@@ -72,8 +73,15 @@ public class UtilisateurModel implements Serializable {
     }
 
     public UtilisateurModel() {
+
     }
 
+    public UtilisateurModel login(String authentifiant, Date dateN){
+        // ici je pense communiquer ahttps://developer.android.com/training/volley/index.htmlc le servlet
+        System.out.println("coucou");
+        return new UtilisateurModel();
+
+    }
     public UtilisateurModel(String nom, String prenom, String lieuNaissance, Date dateNaissance, String matricule, String type) {
         this.nom = nom;
         this.prenom = prenom;
