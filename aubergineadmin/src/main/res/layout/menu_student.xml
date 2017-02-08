@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/menu_student">
+
+    <TextView
+        android:id="@+id/titre_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff"
+        android:textStyle="italic" />
+
+    <ButtonView
+        android:id="@+id/add_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titre_student"
+        android:textColor="#ffff"
+        android:textStyle="italic" />
+
+    <ButtonView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/del_student"
+        android:layout_above="@+id/titre_student"
+        android:layout_toRightOf="@+id/add_student"/>
+
+    <ButtonView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/update_student"
+        android:layout_above="@+id/titre_student"
+        android:layout_toRightOf="@+id/add_student"/>
+
+</RelativeLayout >
