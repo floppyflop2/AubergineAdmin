@@ -11,22 +11,31 @@
     tools:context="com.example.florian.aubergine.View.MainActivity">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp">
-        <EditText android:id="@+id/identifiant"
-            android:layout_weight="1"
-            android:layout_width="0dp"
+
+        <EditText android:id="@+id/matricule"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="identifiant" />
+            android:hint="matricule" />
+
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="login" />
+            android:text="Recupérer feuille de login" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/erreur"
+            android:layout_weight="1"
+            android:textColor="#FF0000"
+            />
     </LinearLayout>
 
 
