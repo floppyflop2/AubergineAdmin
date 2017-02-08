@@ -6,8 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/Aubergine2.iml" filepath="$PROJECT_DIR$/Aubergine2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Aubergineadmin.iml" filepath="$PROJECT_DIR$/Aubergineadmin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aubergineadmin/aubergineadmin.iml" filepath="$PROJECT_DIR$/aubergineadmin/aubergineadmin.iml" />
       <module fileurl="file://$PROJECT_DIR$/aubergineadmin/aubergineadmin.iml" filepath="$PROJECT_DIR$/aubergineadmin/aubergineadmin.iml" />
     </modules>
   </component>
