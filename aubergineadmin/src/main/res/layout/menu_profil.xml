@@ -9,33 +9,57 @@
 
     <TextView
         android:id="@+id/titre_profil"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffff"
         android:textStyle="italic" />
 
-    <ButtonView
-        android:id="@+id/add_profil"
+    <TextView
+        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titre_profil"
-        android:textColor="#ffff"
-        android:textStyle="italic" />
+        android:id="@+id/nom_profil" />
 
-    <ButtonView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/del_profil"
-        android:layout_above="@+id/titre_profil"
-        android:layout_toRightOf="@+id/add_profil"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ButtonView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/update_profil"
-        android:layout_above="@+id/titre_profil"
-        android:layout_toRightOf="@+id/add_profil"/>
+        <Button
+            android:id="@+id/add_profil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titre_profil"
+            android:textColor="#ffff"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/del_profil"
+            android:layout_above="@+id/titre_profil"
+            android:layout_toRightOf="@+id/add_profil"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/update_profil"
+            android:layout_above="@+id/titre_profil"
+            android:layout_toRightOf="@+id/add_profil"/>
+    </LinearLayout>
 
 </RelativeLayout >

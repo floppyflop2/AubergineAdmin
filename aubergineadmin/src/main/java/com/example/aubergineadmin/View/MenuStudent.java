@@ -10,6 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.aubergineadmin.Model.UtilisateurModel;
 import com.example.aubergineadmin.MySingleton;
 import com.example.aubergineadmin.R;
 
@@ -17,14 +18,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 /**
  * Created by Florian on 08/02/2017.
  */
 
-public class MenuStudent extends AppCompatActivity {
+public class MenuStudent extends MainAdminActivity {
 
 
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
+    private UtilisateurModel utilisateurCourant;
+    private Map<String, UtilisateurModel> userMap;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
