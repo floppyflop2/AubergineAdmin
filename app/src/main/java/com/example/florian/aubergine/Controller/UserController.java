@@ -10,7 +10,7 @@ import java.util.Date;
 
 public interface UserController {
 
-    public UtilisateurModel login(String authentifiant, Date dateN);
+    public UtilisateurModel login( String matricule);
 
 
 }

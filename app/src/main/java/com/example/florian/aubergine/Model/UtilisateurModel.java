@@ -75,13 +75,14 @@ public class UtilisateurModel implements Serializable {
     public UtilisateurModel() {
 
     }
-
-    public UtilisateurModel login(String authentifiant, Date dateN){
+/*
+    public UtilisateurModel login(String authentifiant){
         // ici je pense communiquer ahttps://developer.android.com/training/volley/index.htmlc le servlet
         System.out.println("coucou");
         return new UtilisateurModel();
 
     }
+    */
     public UtilisateurModel(String nom, String prenom, String lieuNaissance, Date dateNaissance, String matricule, String type) {
         this.nom = nom;
         this.prenom = prenom;

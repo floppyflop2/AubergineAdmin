@@ -20,6 +20,7 @@ import com.example.florian.aubergine.Model.DalCommunication;
 import com.example.florian.aubergine.Model.UtilisateurModel;
 import com.example.florian.aubergine.View.MainActivity;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -32,7 +33,7 @@ import java.util.Date;
 
 public class UserControllerImplementation implements UserController{
 
-    public static String url = "http://fierce-basin-74883.herokuapp.com/api/hello";
+
     MainActivity view;
     // Instantiate the RequestQueue.
     RequestQueue queue = Volley.newRequestQueue(view);
@@ -43,7 +44,7 @@ public class UserControllerImplementation implements UserController{
         this.dalCommunication=dalCommunication;
 
         // Instantiate the cache  ps donner l'adresse du cache
-        Cache cache = new DiskBasedCache( new File("bl"), 1024*1024); // 1MB cap
+        Cache cache = new DiskBasedCache( new File("C:\\Users\\Florian\\blabla"), 1024*1024); // 1MB cap
         // Set up the network to use HttpURLConnection as the HTTP client.
         Network network = new BasicNetwork(new HurlStack());
     // Instantiate the RequestQueue with the cache and network.
@@ -54,11 +55,18 @@ public class UserControllerImplementation implements UserController{
 
 
     @Override
-    public UtilisateurModel login(String authentifiant, Date dateN) {
-       String demand = "login";
-        JSONObject response = dalCommunication.onGetRequest(queue, demand);
+    public UtilisateurModel login(String matricule) {
+        String demand = "login";
+        UtilisateurModel utilisateur = new UtilisateurModel();
+        JSONObject response = dalCommunication.onGetRequest(queue, demand, matricule);
+        try {
+            utilisateur.setMatricule(response.get("idUtilisateur").toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         System.out.println(response.toString()+"coucou");
 
-        return null;
+        utilisateur.setMatricule("coucou");
+        return utilisateur;
     }
 }

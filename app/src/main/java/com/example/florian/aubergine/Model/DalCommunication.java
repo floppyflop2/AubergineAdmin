@@ -24,11 +24,11 @@ public class DalCommunication {
     }
 
     // Add the request to the RequestQueue.
-    public JSONObject onGetRequest(RequestQueue queue, String method) {
+    public JSONObject onGetRequest(RequestQueue queue, String method, String id) {
         // Request a string response from the provided URL.
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.GET, url+method, null, new Response.Listener<JSONObject>() {
+                (Request.Method.GET, url+"/"+method+"/"+id, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
