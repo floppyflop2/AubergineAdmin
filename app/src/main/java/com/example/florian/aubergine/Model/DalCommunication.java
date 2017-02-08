@@ -26,7 +26,7 @@ public class DalCommunication {
     // Add the request to the RequestQueue.
     public JSONObject onGetRequest(RequestQueue queue, String method, String id) {
         // Request a string response from the provided URL.
-
+        System.out.println(url);
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url+"/"+method+"/"+id, null, new Response.Listener<JSONObject>() {
 

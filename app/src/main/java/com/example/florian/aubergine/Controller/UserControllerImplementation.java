@@ -36,19 +36,20 @@ public class UserControllerImplementation implements UserController{
 
     MainActivity view;
     // Instantiate the RequestQueue.
-    RequestQueue queue = Volley.newRequestQueue(view);
+    public  RequestQueue queue;
     DalCommunication dalCommunication;
 
-    public UserControllerImplementation(MainActivity view, DalCommunication dalCommunication){
+    public UserControllerImplementation(MainActivity view, DalCommunication dalCommunication, RequestQueue queue){
         this.view = view;
+        this.queue =queue;
         this.dalCommunication=dalCommunication;
 
         // Instantiate the cache  ps donner l'adresse du cache
-        Cache cache = new DiskBasedCache( new File("C:\\Users\\Florian\\blabla"), 1024*1024); // 1MB cap
+      //  Cache cache = new DiskBasedCache( new File("C:\\Users\\Florian\\blabla"), 1024*1024); // 1MB cap
         // Set up the network to use HttpURLConnection as the HTTP client.
-        Network network = new BasicNetwork(new HurlStack());
+       // Network network = new BasicNetwork(new HurlStack());
     // Instantiate the RequestQueue with the cache and network.
-        queue = new RequestQueue(cache, network);
+      //  queue = Volley.newRequestQueue(view);
 
         queue.start();
     }
