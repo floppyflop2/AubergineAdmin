@@ -44,6 +44,7 @@ public class LogicielDetail extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+    //d
 
 
     private View.OnClickListener deleteLogiciel = new View.OnClickListener() {
