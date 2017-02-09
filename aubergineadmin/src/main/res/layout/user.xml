@@ -9,32 +9,40 @@
     android:elevation="4dp"
     android:padding="16dp">
 
+
     <TextView
-        android:id="@+id/matricule"
+        android:id="@+id/usermatricule"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_marginRight="18dp" />
 
     <TextView
-        android:id="@+id/nom"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/matricule"
         android:paddingBottom="5dp"
         android:textColor="#ffff"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/section"
+        android:id="@+id/usersection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nom"
+        android:layout_below="@+id/username"
         android:layout_toRightOf="@+id/matricule"
         android:textColor="#ffff"
         android:textStyle="italic" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/del_user"
+        android:layout_above="@+id/titre_user"
+        android:layout_toRightOf="@+id/add_user"/>
+<!--
     <TextView
         android:id="@+id/logiciel1"
         android:layout_width="wrap_content"
@@ -61,6 +69,7 @@
         android:layout_toRightOf="@+id/matricule"
         android:textColor="#ffff"
         android:textStyle="italic" />
+!-->
 
 
 </RelativeLayout>

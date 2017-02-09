@@ -6,10 +6,10 @@ package com.example.aubergineadmin.Model;
 
 public class LogicielModel {
 
-    private String id;
+    private int id;
     private String nom;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -17,7 +17,7 @@ public class LogicielModel {
         return nom;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -25,7 +25,7 @@ public class LogicielModel {
         this.nom = nom;
     }
 
-    public LogicielModel(String id, String nom) {
+    public LogicielModel(int id, String nom) {
         this.id = id;
         this.nom = nom;
     }

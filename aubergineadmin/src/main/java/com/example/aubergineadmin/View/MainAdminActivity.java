@@ -9,7 +9,7 @@ import com.example.aubergineadmin.R;
 
 
 public class MainAdminActivity extends AppCompatActivity {
-
+    MenuLogiciel menuLogiciel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +21,7 @@ public class MainAdminActivity extends AppCompatActivity {
         findViewById(R.id.nav_profil).setOnClickListener(onClickProfil);
 
         findViewById(R.id.nav_logiciel).setOnClickListener(onClickLogiciel);
-
-
+        menuLogiciel=new MenuLogiciel();
     }
 
     private View.OnClickListener onClickUser = new View.OnClickListener() {
@@ -43,7 +42,7 @@ public class MainAdminActivity extends AppCompatActivity {
     private View.OnClickListener onClickLogiciel = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
+            System.out.println("logiciel");
             setContentView(R.layout.menu_logiciel);
         }
     };

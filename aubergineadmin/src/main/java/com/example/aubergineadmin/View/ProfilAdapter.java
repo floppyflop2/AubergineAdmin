@@ -9,21 +9,23 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.aubergineadmin.Model.LogicielModel;
+import com.example.aubergineadmin.Model.ProfilModel;
 import com.example.aubergineadmin.R;
 
 import java.util.ArrayList;
 
 /**
- * Created by Florian on 08/02/2017.
+ * Created by Florian on 09/02/2017.
  */
 
-public class LogicielAdatpter extends ArrayAdapter<LogicielModel> {
+public class ProfilAdapter extends ArrayAdapter<ProfilModel> {
+
     /**
      @param context
-     @param logiciels
+     @param profils
      */
-    public LogicielAdatpter(Context context , ArrayList<LogicielModel> logiciels){
-        super(context,0,logiciels);
+    public ProfilAdapter(Context context , ArrayList<ProfilModel> profils){
+        super(context,0,profils);
     }
 
 
@@ -31,14 +33,15 @@ public class LogicielAdatpter extends ArrayAdapter<LogicielModel> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LogicielModel logiciel = getItem(position);
+        ProfilModel profil = getItem(position);
         if(convertView==null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list, parent, false);
         }
 
         TextView logicielName = (TextView)convertView.findViewById(R.id.nameLogiciel);
-        logicielName.setText(logiciel.getNom());
+        logicielName.setText(profil.getNomLogiciel());
         return convertView;
 
     }
+
 }

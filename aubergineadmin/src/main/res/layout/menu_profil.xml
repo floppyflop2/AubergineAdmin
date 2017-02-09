@@ -76,11 +76,12 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/retour"
+            android:id="@+id/retourPro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#ffff"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:text="Retour" />
     </LinearLayout>
 
 </RelativeLayout >

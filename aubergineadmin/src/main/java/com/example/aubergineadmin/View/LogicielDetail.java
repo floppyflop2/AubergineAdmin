@@ -1,8 +1,8 @@
 package com.example.aubergineadmin.View;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.ArrayMap;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,52 +14,42 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.aubergineadmin.Model.LogicielModel;
-import com.example.aubergineadmin.Model.UtilisateurModel;
 import com.example.aubergineadmin.R;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 /**
- * Created by Florian on 08/02/2017.
+ * Created by Florian on 09/02/2017.
  */
 
-public class MenuLogiciel extends AppCompatActivity {
-    public static String url = "http://fierce-basin-74883.herokuapp.com/api";
-    private LogicielModel logicielCourant;
-    private ArrayList<LogicielModel> logiciels = new ArrayList<>();
+public class LogicielDetail extends AppCompatActivity {
+    private static Button delLogicielButton;
+    private static Button updateLogicielButton;
+    private LogicielModel logicielModel;
 
-    public MenuLogiciel(){
-        Button addLogicielButton = (Button) findViewById(R.id.add_logiciel);
-        addLogicielButton.setOnClickListener(addLogiciel);
+    public LogicielDetail(LogicielModel logicielModel) {
+        this.logicielModel=logicielModel;
 
-        ListView lvLogiciel = (ListView) findViewById(R.id.list_logiciel);
-        lvLogiciel.setAdapter(new UserAdapter(this,logiciels));
-        lvLogiciel.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) listUserListener);
+        delLogicielButton = (Button) findViewById(R.id.del_logiciel);
+        delLogicielButton.setOnClickListener(deleteLogiciel);
+
+        updateLogicielButton = (Button) findViewById(R.id.update_logiciel);
+        updateLogicielButton.setOnClickListener(updateLogiciel);
 
         findViewById(R.id.retourLog).setOnClickListener(retourL);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Button addLogicielButton = (Button) findViewById(R.id.add_logiciel);
-        addLogicielButton.setOnClickListener(addLogiciel);
-
-        findViewById(R.id.retourLog).setOnClickListener(retourL);
     }
 
 
-
-    private View.OnClickListener addLogiciel = new View.OnClickListener() {
+    private View.OnClickListener deleteLogiciel = new View.OnClickListener() {
         String logiciel = ((TextView) findViewById(R.id.titre_logiciel)).toString();
 
         @Override
         public void onClick(View view) {
-
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                         @Override
@@ -80,27 +70,37 @@ public class MenuLogiciel extends AppCompatActivity {
                         }
                     });
         }
+    };
 
+    private View.OnClickListener updateLogiciel = new View.OnClickListener() {
+        String logiciel = ((TextView) findViewById(R.id.titre_logiciel)).toString();
+
+        @Override
+        public void onClick(View view) {
+            JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                    (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            System.out.print(error);
+                            if (error.networkResponse == null) {
+                                ((TextView) findViewById(R.id.erreur)).setText("Service Hors Ligne");
+                            } else {
+                                ((TextView) findViewById(R.id.erreur)).setText("Matricule inexistant");
+                            }
+
+                        }
+                    });
+        }
     };
 
 
-    private AdapterView.OnItemSelectedListener listLogicielListener = new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-            LogicielModel log = (LogicielModel) adapterView.getItemAtPosition(position);
-            LogicielDetail logD = new LogicielDetail(log);
-            setContentView(R.layout.logiciel);
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {
-
-        }
-
-    };
-
-
-    private View.OnClickListener retourL = new View.OnClickListener(){
+    private View.OnClickListener retourL = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             System.out.println("bonjour");

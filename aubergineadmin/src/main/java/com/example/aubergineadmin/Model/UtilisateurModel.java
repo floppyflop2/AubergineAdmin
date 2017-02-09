@@ -10,73 +10,47 @@ import java.util.Date;
  */
 
 public class UtilisateurModel implements Serializable {
-
+    private int id;
     private String nom;
-    private String prenom;
-    private String lieuNaissance;
-    private Date dateNaissance;
     private String matricule;
-    private String type; // on fait un enum ?
+    private String section;
 
+    public int getId() {
+        return id;
+    }
 
     public String getNom() {
         return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getLieuNaissance() {
-        return lieuNaissance;
-    }
-
-    public void setLieuNaissance(String lieuNaissance) {
-        this.lieuNaissance = lieuNaissance;
-    }
-
-    public Date getDateNaissance() {
-        return dateNaissance;
-    }
-
-    public void setDateNaissance(Date dateNaissance) {
-        this.dateNaissance = dateNaissance;
     }
 
     public String getMatricule() {
         return matricule;
     }
 
+    public String getSection() {
+        return section;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
     public void setMatricule(String matricule) {
         this.matricule = matricule;
     }
 
-    public String getType() {
-        return type;
+    public void setSection(String section) {
+        this.section = section;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public UtilisateurModel() {
-
-    }
-
-    public UtilisateurModel(String nom, String prenom, String lieuNaissance, Date dateNaissance, String matricule, String type) {
+    public UtilisateurModel(int id, String nom, String matricule, String section) {
+        this.id = id;
         this.nom = nom;
-        this.prenom = prenom;
-        this.lieuNaissance = lieuNaissance;
-        this.dateNaissance = dateNaissance;
         this.matricule = matricule;
-        this.type = type;
+        this.section = section;
     }
 }
