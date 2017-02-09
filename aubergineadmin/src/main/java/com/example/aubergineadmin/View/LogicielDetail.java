@@ -26,7 +26,7 @@ public class LogicielDetail extends AppCompatActivity {
     private static Button delLogicielButton;
     private static Button updateLogicielButton;
     private LogicielModel logicielModel;
-
+    public static String url = "http://fierce-basin-74883.herokuapp.com/api";
     public LogicielDetail(LogicielModel logicielModel) {
         this.logicielModel=logicielModel;
 
@@ -51,6 +51,7 @@ public class LogicielDetail extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
+
                     (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {

@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 
 public class ProfilAdapter extends ArrayAdapter<ProfilModel> {
-
+    public static String url = "http://fierce-basin-74883.herokuapp.com/api";
     /**
      @param context
      @param profils

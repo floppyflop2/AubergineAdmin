@@ -36,8 +36,8 @@ public class MenuLogiciel extends AppCompatActivity {
         addLogicielButton.setOnClickListener(addLogiciel);
 
         ListView lvLogiciel = (ListView) findViewById(R.id.list_logiciel);
-        lvLogiciel.setAdapter(new UserAdapter(this,logiciels));
-        lvLogiciel.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) listUserListener);
+        lvLogiciel.setAdapter(new LogicielAdatpter(this,logiciels));
+        lvLogiciel.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) listLogicielListener);
 
         findViewById(R.id.retourLog).setOnClickListener(retourL);
     }

@@ -26,6 +26,7 @@ public class UserDetail extends AppCompatActivity{
     private static Button deluserButton;
     private static Button updateuserButton;
     private UtilisateurModel utilisateurModel;
+    public static String url = "http://fierce-basin-74883.herokuapp.com/api";
 
     public UserDetail(UtilisateurModel utilisateurModel){
         this.utilisateurModel=utilisateurModel;

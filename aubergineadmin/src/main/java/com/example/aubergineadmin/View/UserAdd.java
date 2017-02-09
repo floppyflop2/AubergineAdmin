@@ -21,6 +21,7 @@ import org.json.JSONObject;
 
 public class UserAdd extends AppCompatActivity {
     private static Button adduserButton;
+    public static String url = "http://fierce-basin-74883.herokuapp.com/api";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
