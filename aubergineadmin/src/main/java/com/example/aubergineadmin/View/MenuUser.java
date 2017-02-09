@@ -33,7 +33,7 @@ public class MenuUser extends AppCompatActivity {
 
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
     ArrayList<UtilisateurModel> utilisateurs = new ArrayList<>();
-
+    private static Button retourButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,11 @@ public class MenuUser extends AppCompatActivity {
         findViewById(R.id.retourUs).setOnClickListener(retourL);
 
         ListView lvUser = (ListView) findViewById(R.id.student_list);
-        lvUser.setAdapter(new UserAdapter(this,utilisateurs));
+        lvUser.setAdapter(new UserAdapter(this, utilisateurs));
         lvUser.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) listUserListener);
+        retourButton = (Button) findViewById(R.id.retourLog);
+        retourButton.setOnClickListener(retourL);
+
 
     }
 

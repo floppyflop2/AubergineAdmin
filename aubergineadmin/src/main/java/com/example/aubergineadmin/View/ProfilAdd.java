@@ -1,6 +1,5 @@
 package com.example.aubergineadmin.View;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -15,30 +14,35 @@ import com.example.aubergineadmin.R;
 import org.json.JSONObject;
 
 /**
- * Created by Florian on 08/02/2017.
+ * Created by Florian on 09/02/2017.
  */
 
-public class MenuProfil extends AppCompatActivity{
+public class ProfilAdd extends AppCompatActivity {
 
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
+    private static Button buttonAddProfil;
     private static Button retourButton;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-        Button addProfilButton = (Button) findViewById(R.id.add_profil);
-        addProfilButton.setOnClickListener(addProfil);
-
+    public ProfilAdd() {
+        buttonAddProfil = (Button) findViewById(R.id.add_profil);
+        buttonAddProfil.setOnClickListener(addProfil);
 
         retourButton = (Button) findViewById(R.id.retourLog);
         retourButton.setOnClickListener(retourL);
-        
     }
 
-
+    private View.OnClickListener retourL = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            System.out.println("bonjour");
+            setContentView(R.layout.activity_main_admin);
+        }
+    };
 
     private View.OnClickListener addProfil = new View.OnClickListener() {
-        String profil = ((TextView)findViewById(R.id.titre_profil)).toString();
+        String intitule = ((TextView) findViewById(R.id.intitule_profiladd)).toString();
+
+        //on crée une string ac un certain format
         @Override
         public void onClick(View view) {
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
@@ -53,21 +57,17 @@ public class MenuProfil extends AppCompatActivity{
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                         //       ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
+                                // ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
+
                             } else {
-                           //     ((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
+                                //((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
                             }
 
                         }
                     });
         }
+
     };
 
 
-    private View.OnClickListener retourL = new View.OnClickListener(){
-        @Override
-        public void onClick(View view) {
-            setContentView(R.layout.activity_main_admin);
-        }
-    };
 }

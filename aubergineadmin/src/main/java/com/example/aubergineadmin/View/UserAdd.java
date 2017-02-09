@@ -1,7 +1,7 @@
 package com.example.aubergineadmin.View;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -21,19 +21,25 @@ import org.json.JSONObject;
 
 public class UserAdd extends AppCompatActivity {
     private static Button adduserButton;
+    private static Button retourButton;
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         adduserButton = (Button) findViewById(R.id.add_user);
         adduserButton.setOnClickListener(addUser);
+
+        retourButton = (Button) findViewById(R.id.retourLog);
+        retourButton.setOnClickListener(retourL);
+
     }
 
     private View.OnClickListener addUser = new View.OnClickListener() {
-        String matricule = ((TextView)findViewById(R.id.usermatriculeadd)).toString();
-        String section = ((TextView)findViewById(R.id.usersectionadd)).toString();
-        String nom = ((TextView)findViewById(R.id.usernameadd)).toString();
+        String matricule = ((TextView) findViewById(R.id.usermatriculeadd)).toString();
+        String section = ((TextView) findViewById(R.id.usersectionadd)).toString();
+        String nom = ((TextView) findViewById(R.id.usernameadd)).toString();
 
         //on crée une string ac un certain format
 
@@ -51,7 +57,7 @@ public class UserAdd extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                               // ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
+                                // ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
 
                             } else {
                                 //((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
@@ -62,4 +68,14 @@ public class UserAdd extends AppCompatActivity {
         }
 
     };
+
+
+    private View.OnClickListener retourL = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            System.out.println("bonjour");
+            setContentView(R.layout.activity_main_admin);
+        }
+    };
+
 }

@@ -6,6 +6,15 @@ package com.example.aubergineadmin.Model;
 
 public class ProfilModel {
     private String nomLogiciel;
+    private String intitule;
+
+    public String getIntitule() {
+        return intitule;
+    }
+
+    public void setIntitule(String intitule) {
+        this.intitule = intitule;
+    }
 
     public String getNomLogiciel() {
         return nomLogiciel;

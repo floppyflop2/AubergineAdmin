@@ -30,7 +30,7 @@ public class MenuLogiciel extends AppCompatActivity {
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
     private LogicielModel logicielCourant;
     private ArrayList<LogicielModel> logiciels = new ArrayList<>();
-
+    private static Button retourButton;
     public MenuLogiciel(){
         Button addLogicielButton = (Button) findViewById(R.id.add_logiciel);
         addLogicielButton.setOnClickListener(addLogiciel);

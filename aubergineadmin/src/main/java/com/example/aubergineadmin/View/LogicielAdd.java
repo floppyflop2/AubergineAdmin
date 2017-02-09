@@ -15,30 +15,37 @@ import com.example.aubergineadmin.R;
 import org.json.JSONObject;
 
 /**
- * Created by Florian on 08/02/2017.
+ * Created by Florian on 09/02/2017.
  */
 
-public class MenuProfil extends AppCompatActivity{
-
+public class LogicielAdd extends AppCompatActivity {
+    private static Button addlogicielButton;
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
     private static Button retourButton;
+
+
+    public LogicielAdd() {
+        this.addLogiciel = addLogiciel;
+
+        addlogicielButton = (Button) findViewById(R.id.add_logiciel);
+        addlogicielButton.setOnClickListener(addLogiciel);
+
+        retourButton= (Button)findViewById(R.id.retourLog);
+        retourButton.setOnClickListener(retourL);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Button addProfilButton = (Button) findViewById(R.id.add_profil);
-        addProfilButton.setOnClickListener(addProfil);
 
-
-        retourButton = (Button) findViewById(R.id.retourLog);
-        retourButton.setOnClickListener(retourL);
-        
     }
 
+    private View.OnClickListener addLogiciel = new View.OnClickListener() {
+        String intitule = ((TextView) findViewById(R.id.intituleadd)).toString();
 
+        //on crée une string ac un certain format
 
-    private View.OnClickListener addProfil = new View.OnClickListener() {
-        String profil = ((TextView)findViewById(R.id.titre_profil)).toString();
         @Override
         public void onClick(View view) {
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
@@ -53,20 +60,22 @@ public class MenuProfil extends AppCompatActivity{
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                         //       ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
+                                // ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
+
                             } else {
-                           //     ((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
+                                //((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
                             }
 
                         }
                     });
         }
+
     };
 
-
-    private View.OnClickListener retourL = new View.OnClickListener(){
+    private View.OnClickListener retourL = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            System.out.println("bonjour");
             setContentView(R.layout.activity_main_admin);
         }
     };

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class UserDetail extends AppCompatActivity{
     private static Button deluserButton;
     private static Button updateuserButton;
+    private static Button retourButton;
     private UtilisateurModel utilisateurModel;
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
 
@@ -40,19 +41,14 @@ public class UserDetail extends AppCompatActivity{
 
         deluserButton.setOnClickListener(deleteUser);
         updateuserButton.setOnClickListener(updateUser);
-
+        retourButton= (Button)findViewById(R.id.retourLog);
+        retourButton.setOnClickListener(retourL);
 
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        deluserButton = (Button) findViewById(R.id.del_user);
-        deluserButton.setOnClickListener(deleteUser);
-
-        updateuserButton = (Button) findViewById(R.id.update_user);
-        updateuserButton.setOnClickListener(updateUser);
 
     }
 
@@ -113,6 +109,15 @@ public class UserDetail extends AppCompatActivity{
                     });
         }
 
+    };
+
+
+    private View.OnClickListener retourL = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            System.out.println("bonjour");
+            setContentView(R.layout.activity_main_admin);
+        }
     };
 
 
