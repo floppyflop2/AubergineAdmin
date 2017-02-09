@@ -22,6 +22,7 @@ public class MainAdminActivity extends AppCompatActivity {
 
         findViewById(R.id.nav_logiciel).setOnClickListener(onClickLogiciel);
 
+
     }
 
     private View.OnClickListener onClickUser = new View.OnClickListener() {
