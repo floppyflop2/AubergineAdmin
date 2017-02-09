@@ -10,7 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.florian.aubergine.MySingleton;
-import com.example.florian.aubergine.R;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
