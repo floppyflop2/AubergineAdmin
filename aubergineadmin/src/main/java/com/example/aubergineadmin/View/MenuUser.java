@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -24,7 +25,7 @@ import java.util.Map;
  * Created by Florian on 08/02/2017.
  */
 
-public class MenuStudent extends MainAdminActivity {
+public class MenuUser extends MainAdminActivity {
 
 
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
@@ -37,11 +38,21 @@ public class MenuStudent extends MainAdminActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_admin);
+        Button adduserButton = (Button) findViewById(R.id.add_user);
+        adduserButton.setOnClickListener(addUser);
 
+        Button deluserButton = (Button) findViewById(R.id.del_user);
+        deluserButton.setOnClickListener(deleteUser);
+
+        Button updateuserButton = (Button) findViewById(R.id.update_user);
+        updateuserButton.setOnClickListener(updateUser);
+
+        Button retour = (Button) findViewById(R.id.retour);
+        retour.setOnClickListener(retourL);
 
     }
 
-    private View.OnClickListener userAdd = new View.OnClickListener() {
+    private View.OnClickListener addUser = new View.OnClickListener() {
         String matricule = ((TextView)findViewById(R.id.matricule)).toString();
         String section = ((TextView)findViewById(R.id.section)).toString();
         String nom = ((TextView)findViewById(R.id.nom)).toString();
@@ -74,7 +85,7 @@ public class MenuStudent extends MainAdminActivity {
     };
 
 
-    private View.OnClickListener userDel = new View.OnClickListener() {
+    private View.OnClickListener deleteUser = new View.OnClickListener() {
         String matricule = ((TextView)findViewById(R.id.matricule)).toString();
         String section = ((TextView)findViewById(R.id.section)).toString();
         String nom = ((TextView)findViewById(R.id.nom)).toString();
@@ -107,7 +118,7 @@ public class MenuStudent extends MainAdminActivity {
     };
 
 
-    private View.OnClickListener userUpdate = new View.OnClickListener() {
+    private View.OnClickListener updateUser = new View.OnClickListener() {
         String matricule = ((TextView)findViewById(R.id.matricule)).toString();
         String section = ((TextView)findViewById(R.id.section)).toString();
         String nom = ((TextView)findViewById(R.id.nom)).toString();
@@ -137,6 +148,13 @@ public class MenuStudent extends MainAdminActivity {
                     });
         }
 
+    };
+
+    private View.OnClickListener retourL = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            setContentView(R.layout.activity_main_admin);
+        }
     };
 
 /*
@@ -155,13 +173,13 @@ public class MenuStudent extends MainAdminActivity {
                         setContentView(R.layout.feuille_de_login);
                         final TextView feuilleDeLoginsTW = (TextView) findViewById(R.id.logins);
                         try {
-                            JSONArray logiciels = response.getJSONArray("logiciels");
+                            JSONArray users = response.getJSONArray("users");
                             String feuilleDeLogins = "";
-                            for (int i = 0; i < logiciels.length(); i++) {
-                                JSONObject logiciel = logiciels.getJSONObject(i);
-                                feuilleDeLogins += logiciel.get("nom") + " :\n";
-                                feuilleDeLogins += "login : " + logiciel.get("login") + "\n";
-                                feuilleDeLogins += "mdp : " + logiciel.get("mdp") + "\n\n";
+                            for (int i = 0; i < users.length(); i++) {
+                                JSONObject user = users.getJSONObject(i);
+                                feuilleDeLogins += user.get("nom") + " :\n";
+                                feuilleDeLogins += "login : " + user.get("login") + "\n";
+                                feuilleDeLogins += "mdp : " + user.get("mdp") + "\n\n";
                             }
 
 

@@ -5,61 +5,83 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/menu_student">
-
-    <TextView
-        android:id="@+id/titre_logiciel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffff"
-        android:textStyle="italic" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
+    android:id="@+id/menu_logiciel">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/add_logiciel"
+        <TextView
+            android:id="@+id/titre_logiciel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/titre_logiciel"
             android:textColor="#ffff"
             android:textStyle="italic" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
+        <TextView
+            android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/del_logiciel"
-            android:layout_above="@+id/titre_logiciel"
-            android:layout_toRightOf="@+id/add_logiciel"/>
-    </LinearLayout>
+            android:id="@+id/empty" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="97dp">
 
-        <Button
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/update_logiciel"
+                android:layout_above="@+id/titre_logiciel"
+                android:layout_toRightOf="@+id/add_logiciel"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="96dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/del_logiciel"
+                android:layout_above="@+id/titre_logiciel"
+                android:layout_toRightOf="@+id/add_logiciel"/>
+        </LinearLayout>
+
+        <TextView
+            android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/update_logiciel"
-            android:layout_above="@+id/titre_logiciel"
-            android:layout_toRightOf="@+id/add_logiciel"/>
+            android:id="@+id/erreur" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="95dp">
+
+            <Button
+                android:id="@+id/add_logiciel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titre_logiciel"
+                android:textColor="#ffff"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/retour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:textStyle="italic" />
+
     </LinearLayout>
 
 </RelativeLayout >

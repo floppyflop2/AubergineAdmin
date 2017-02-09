@@ -3,6 +3,7 @@ package com.example.aubergineadmin.View;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -25,6 +26,18 @@ public class MenuProfil extends MainAdminActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Button addProfilButton = (Button) findViewById(R.id.add_profil);
+        addProfilButton.setOnClickListener(addProfil);
+
+        Button delProfilButton = (Button) findViewById(R.id.del_profil);
+        delProfilButton.setOnClickListener(deleteProfil);
+
+        Button updateProfilButton = (Button) findViewById(R.id.update_profil);
+        updateProfilButton.setOnClickListener(updateProfil);
+
+        Button retour = (Button) findViewById(R.id.retour);
+        retour.setOnClickListener(retourL);
+        
     }
 
 
@@ -104,6 +117,13 @@ public class MenuProfil extends MainAdminActivity{
 
                         }
                     });
+        }
+    };
+
+    private View.OnClickListener retourL = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            setContentView(R.layout.activity_main_admin);
         }
     };
 }

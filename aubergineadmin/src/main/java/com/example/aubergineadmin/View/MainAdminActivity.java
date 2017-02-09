@@ -16,26 +16,35 @@ public class MainAdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_admin);
 
 
+        findViewById(R.id.nav_user).setOnClickListener(onClickUser);
+
+        findViewById(R.id.nav_profil).setOnClickListener(onClickProfil);
+
+        findViewById(R.id.nav_logiciel).setOnClickListener(onClickLogiciel);
+
     }
 
-    private View.OnClickListener onClick = new View.OnClickListener() {
+    private View.OnClickListener onClickUser = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.nav_User:
-                    setContentView(R.layout.menu_student);
-
-                case R.id.nav_profil:
-                    setContentView(R.layout.menu_profil);
-
-                case R.id.nav_logiciel:
-                    setContentView(R.layout.menu_logiciel);
-
-
-            }
-
+            setContentView(R.layout.menu_user);
         }
     };
 
+
+    private View.OnClickListener onClickProfil = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            setContentView(R.layout.menu_profil);
+        }
+    };
+
+    private View.OnClickListener onClickLogiciel = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+            setContentView(R.layout.menu_logiciel);
+        }
+    };
 
 }

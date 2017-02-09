@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/menu_profil">
+    android:id="@+id/menu_user">
 
     <LinearLayout
         android:orientation="vertical"
@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/titre_profil"
+            android:id="@+id/titre_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#ffff"
@@ -34,9 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/update_profil"
-                android:layout_above="@+id/titre_profil"
-                android:layout_toRightOf="@+id/add_profil"/>
+                android:id="@+id/update_user"
+                android:layout_above="@+id/titre_user"
+                android:layout_toRightOf="@+id/add_user"/>
 
         </LinearLayout>
 
@@ -49,9 +49,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/del_profil"
-                android:layout_above="@+id/titre_profil"
-                android:layout_toRightOf="@+id/add_profil"/>
+                android:id="@+id/del_user"
+                android:layout_above="@+id/titre_user"
+                android:layout_toRightOf="@+id/add_user"/>
         </LinearLayout>
 
         <TextView
@@ -66,21 +66,23 @@
             android:layout_height="95dp">
 
             <Button
-                android:id="@+id/add_profil"
+                android:id="@+id/add_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/titre_profil"
+                android:layout_below="@+id/titre_user"
                 android:textColor="#ffff"
                 android:textStyle="italic" />
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/retour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffff"
+                android:textStyle="italic" />
 
-        <Button
-            android:id="@+id/retour"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#ffff"
-            android:textStyle="italic" />
+
+
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout >

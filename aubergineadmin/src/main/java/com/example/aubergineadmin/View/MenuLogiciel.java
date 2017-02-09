@@ -3,6 +3,7 @@ package com.example.aubergineadmin.View;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -23,16 +24,28 @@ import java.util.Map;
 
 public class MenuLogiciel extends MainAdminActivity {
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
-    public LogicielModel logicielCourant ;
+    public LogicielModel logicielCourant;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Button addLogicielButton = (Button) findViewById(R.id.add_logiciel);
+        addLogicielButton.setOnClickListener(addLogiciel);
+
+        Button delLogicielButton = (Button) findViewById(R.id.del_logiciel);
+        delLogicielButton.setOnClickListener(deleteLogiciel);
+
+        Button updateLogicielButton = (Button) findViewById(R.id.update_logiciel);
+        updateLogicielButton.setOnClickListener(updateLogiciel);
+
+        Button retour = (Button) findViewById(R.id.retour);
+        retour.setOnClickListener(retourL);
     }
 
 
     private View.OnClickListener addLogiciel = new View.OnClickListener() {
-        String logiciel = ((TextView)findViewById(R.id.titre_logiciel)).toString();
+        String logiciel = ((TextView) findViewById(R.id.titre_logiciel)).toString();
 
         @Override
         public void onClick(View view) {
@@ -49,9 +62,9 @@ public class MenuLogiciel extends MainAdminActivity {
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                                ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
+                                ((TextView) findViewById(R.id.matricule)).setText("Service Hors Ligne");
                             } else {
-                                ((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
+                                ((TextView) findViewById(R.id.matricule)).setText("Matricule inexistant");
                             }
 
                         }
@@ -61,7 +74,8 @@ public class MenuLogiciel extends MainAdminActivity {
     };
 
     private View.OnClickListener deleteLogiciel = new View.OnClickListener() {
-        String logiciel = ((TextView)findViewById(R.id.titre_logiciel)).toString();
+        String logiciel = ((TextView) findViewById(R.id.titre_logiciel)).toString();
+
         @Override
         public void onClick(View view) {
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
@@ -76,9 +90,9 @@ public class MenuLogiciel extends MainAdminActivity {
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                                ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
+                                ((TextView) findViewById(R.id.matricule)).setText("Service Hors Ligne");
                             } else {
-                                ((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
+                                ((TextView) findViewById(R.id.matricule)).setText("Matricule inexistant");
                             }
 
                         }
@@ -87,7 +101,8 @@ public class MenuLogiciel extends MainAdminActivity {
     };
 
     private View.OnClickListener updateLogiciel = new View.OnClickListener() {
-        String logiciel = ((TextView)findViewById(R.id.titre_logiciel)).toString();
+        String logiciel = ((TextView) findViewById(R.id.titre_logiciel)).toString();
+
         @Override
         public void onClick(View view) {
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
@@ -102,13 +117,20 @@ public class MenuLogiciel extends MainAdminActivity {
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                                ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
+                                ((TextView) findViewById(R.id.erreur)).setText("Service Hors Ligne");
                             } else {
-                                ((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
+                                ((TextView) findViewById(R.id.erreur)).setText("Matricule inexistant");
                             }
 
                         }
                     });
+        }
+    };
+
+    private View.OnClickListener retourL = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            setContentView(R.layout.activity_main_admin);
         }
     };
 
