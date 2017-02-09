@@ -31,7 +31,7 @@ public class UserAdd extends AppCompatActivity {
         adduserButton = (Button) findViewById(R.id.add_user);
         adduserButton.setOnClickListener(addUser);
 
-        retourButton = (Button) findViewById(R.id.retourLog);
+        retourButton = (Button) findViewById(R.id.retourUs);
         retourButton.setOnClickListener(retourL);
 
     }

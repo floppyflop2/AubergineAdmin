@@ -25,4 +25,13 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/del_logiciel"/>
 
+    <Button
+        android:id="@+id/retourLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        android:textColor="#ffff"
+        android:textStyle="italic" />
+
+
 </LinearLayout>

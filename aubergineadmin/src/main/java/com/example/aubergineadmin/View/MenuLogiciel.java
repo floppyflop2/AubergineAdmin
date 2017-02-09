@@ -31,25 +31,25 @@ public class MenuLogiciel extends AppCompatActivity {
     private LogicielModel logicielCourant;
     private ArrayList<LogicielModel> logiciels = new ArrayList<>();
     private static Button retourButton;
+    private static Button addLogicielButton;
+
     public MenuLogiciel(){
-        Button addLogicielButton = (Button) findViewById(R.id.add_logiciel);
-        addLogicielButton.setOnClickListener(addLogiciel);
+       addLogicielButton = (Button) findViewById(R.id.add_logiciel);
+       addLogicielButton.setOnClickListener(addLogiciel);
 
         ListView lvLogiciel = (ListView) findViewById(R.id.list_logiciel);
         lvLogiciel.setAdapter(new LogicielAdatpter(this,logiciels));
         lvLogiciel.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) listLogicielListener);
 
-        findViewById(R.id.retourLog).setOnClickListener(retourL);
+        retourButton = (Button)findViewById(R.id.retourLog);
+        retourButton.setOnClickListener(retourL);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Button addLogicielButton = (Button) findViewById(R.id.add_logiciel);
-        addLogicielButton.setOnClickListener(addLogiciel);
 
-        findViewById(R.id.retourLog).setOnClickListener(retourL);
     }
 
 

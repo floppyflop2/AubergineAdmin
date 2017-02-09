@@ -47,34 +47,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/update_user"/>
 
-<!--
-    <TextView
-        android:id="@+id/logiciel1"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/retourUs"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nom"
-        android:layout_toRightOf="@+id/matricule"
+        android:text="Retour"
         android:textColor="#ffff"
         android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/logiciel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/logiciel1"
-        android:layout_toRightOf="@+id/matricule"
-        android:textColor="#ffff"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/logiciel3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/logiciel2"
-        android:layout_toRightOf="@+id/matricule"
-        android:textColor="#ffff"
-        android:textStyle="italic" />
-!-->
-
 
 </RelativeLayout>

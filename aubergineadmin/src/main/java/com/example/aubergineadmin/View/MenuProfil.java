@@ -22,17 +22,19 @@ public class MenuProfil extends AppCompatActivity{
 
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
     private static Button retourButton;
+    private static   Button addProfilButton;
+
+    public MenuProfil() {
+        addProfilButton = (Button) findViewById(R.id.add_profil);
+        addProfilButton.setOnClickListener(addProfil);
+        retourButton = (Button) findViewById(R.id.retourPro);
+        retourButton.setOnClickListener(retourL);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Button addProfilButton = (Button) findViewById(R.id.add_profil);
-        addProfilButton.setOnClickListener(addProfil);
-
-
-        retourButton = (Button) findViewById(R.id.retourLog);
-        retourButton.setOnClickListener(retourL);
-        
     }
 
 

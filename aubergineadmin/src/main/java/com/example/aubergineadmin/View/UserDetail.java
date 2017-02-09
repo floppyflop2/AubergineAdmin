@@ -41,7 +41,7 @@ public class UserDetail extends AppCompatActivity{
 
         deluserButton.setOnClickListener(deleteUser);
         updateuserButton.setOnClickListener(updateUser);
-        retourButton= (Button)findViewById(R.id.retourLog);
+        retourButton= (Button)findViewById(R.id.retourUs);
         retourButton.setOnClickListener(retourL);
 
     }

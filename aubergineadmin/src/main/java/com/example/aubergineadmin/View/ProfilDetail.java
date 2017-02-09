@@ -36,7 +36,7 @@ public class ProfilDetail extends AppCompatActivity {
         updateProfilButton.setOnClickListener(updateProfil);
 
         findViewById(R.id.retourPro).setOnClickListener(retourL);
-        retourButton = (Button) findViewById(R.id.retourLog);
+        retourButton = (Button) findViewById(R.id.retourPro);
         retourButton.setOnClickListener(retourL);
 
     }

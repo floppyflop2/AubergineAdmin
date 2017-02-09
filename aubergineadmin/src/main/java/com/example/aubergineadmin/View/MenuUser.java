@@ -34,23 +34,22 @@ public class MenuUser extends AppCompatActivity {
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
     ArrayList<UtilisateurModel> utilisateurs = new ArrayList<>();
     private static Button retourButton;
+    private static Button adduserButton;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_admin);
-        Button adduserButton = (Button) findViewById(R.id.add_user);
+    public MenuUser() {
+        adduserButton = (Button) findViewById(R.id.add_user);
         adduserButton.setOnClickListener(addUser);
-
-
-        findViewById(R.id.retourUs).setOnClickListener(retourL);
 
         ListView lvUser = (ListView) findViewById(R.id.student_list);
         lvUser.setAdapter(new UserAdapter(this, utilisateurs));
         lvUser.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) listUserListener);
-        retourButton = (Button) findViewById(R.id.retourLog);
+        retourButton = (Button) findViewById(R.id.retourUs);
         retourButton.setOnClickListener(retourL);
+    }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
     }
 

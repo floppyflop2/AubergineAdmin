@@ -27,7 +27,7 @@ public class ProfilAdd extends AppCompatActivity {
         buttonAddProfil = (Button) findViewById(R.id.add_profil);
         buttonAddProfil.setOnClickListener(addProfil);
 
-        retourButton = (Button) findViewById(R.id.retourLog);
+        retourButton = (Button) findViewById(R.id.retourPro);
         retourButton.setOnClickListener(retourL);
     }
 
