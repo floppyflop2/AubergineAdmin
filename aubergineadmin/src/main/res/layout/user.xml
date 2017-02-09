@@ -31,7 +31,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
-        android:layout_toRightOf="@+id/matricule"
         android:textColor="#ffff"
         android:textStyle="italic" />
 
@@ -39,9 +38,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/del_user"
-        android:layout_above="@+id/titre_user"
-        android:layout_toRightOf="@+id/add_user"/>
+        android:id="@+id/del_user"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/update_user"/>
+
 <!--
     <TextView
         android:id="@+id/logiciel1"

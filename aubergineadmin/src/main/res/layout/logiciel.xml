@@ -13,5 +13,16 @@
         android:id="@+id/nameLogiciel"
         tools:text="nameLogiciel" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/update_logiciel"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/del_logiciel"/>
 
 </LinearLayout>

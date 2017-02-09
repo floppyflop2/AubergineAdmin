@@ -27,6 +27,7 @@ public class LogicielDetail extends AppCompatActivity {
     private static Button updateLogicielButton;
     private LogicielModel logicielModel;
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
+
     public LogicielDetail(LogicielModel logicielModel) {
         this.logicielModel=logicielModel;
 
@@ -63,9 +64,9 @@ public class LogicielDetail extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                                ((TextView) findViewById(R.id.matricule)).setText("Service Hors Ligne");
+                               // ((TextView) findViewById(R.id.matricule)).setText("Service Hors Ligne");
                             } else {
-                                ((TextView) findViewById(R.id.matricule)).setText("Matricule inexistant");
+                               // ((TextView) findViewById(R.id.matricule)).setText("Matricule inexistant");
                             }
 
                         }
