@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.aubergineadmin.Model.LogicielModel;
 import com.example.aubergineadmin.Model.ProfilModel;
 import com.example.aubergineadmin.R;
 
@@ -39,7 +38,7 @@ public class ProfilAdapter extends ArrayAdapter<ProfilModel> {
         }
 
         TextView logicielName = (TextView)convertView.findViewById(R.id.nameLogiciel);
-        logicielName.setText(profil.getNomLogiciel());
+        logicielName.setText(profil.getIntitule());
         return convertView;
 
     }

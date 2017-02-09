@@ -1,12 +1,22 @@
 package com.example.aubergineadmin.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Florian on 09/02/2017.
  */
 
 public class ProfilModel {
-    private String nomLogiciel;
+    private int id;
     private String intitule;
+    private List<LogicielModel> logiciels;
+
+    public ProfilModel(int id, String intitule) {
+        this.id = id;
+        this.intitule = intitule;
+        logiciels = new ArrayList<LogicielModel>();
+    }
 
     public String getIntitule() {
         return intitule;
@@ -16,11 +26,14 @@ public class ProfilModel {
         this.intitule = intitule;
     }
 
-    public String getNomLogiciel() {
-        return nomLogiciel;
+    public void ajouterLogiciel(LogicielModel logiciel){
+        logiciels.add(logiciel);
+    }
+    public int getId() {
+        return id;
     }
 
-    public void setNomLogiciel(String nomLogiciel) {
-        this.nomLogiciel = nomLogiciel;
+    public void setId(int id) {
+        this.id = id;
     }
 }

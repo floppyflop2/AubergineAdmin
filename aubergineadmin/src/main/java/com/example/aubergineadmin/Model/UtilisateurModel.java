@@ -2,7 +2,8 @@
 package com.example.aubergineadmin.Model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -13,7 +14,20 @@ public class UtilisateurModel implements Serializable {
     private int id;
     private String nom;
     private String matricule;
-    private String section;
+    private String email;
+    private String prenom;
+    private String dateDeNaissance; // AAAA-MM-JJ
+    private String type;
+    private List<LoginModel> logins;
+    private List<ProfilModel> profils;
+
+    public List<LoginModel> getLogins() {
+        return logins;
+    }
+
+    public List<ProfilModel> getProfils() {
+        return profils;
+    }
 
     public int getId() {
         return id;
@@ -23,13 +37,21 @@ public class UtilisateurModel implements Serializable {
         return nom;
     }
 
+    public void ajouterLogin (LoginModel login){
+        this.logins.add(login);
+    }
+
+    public void ajouterProfil (ProfilModel profil){
+        this.profils.add(profil);
+    }
+
     public String getMatricule() {
         return matricule;
     }
 
-    public String getSection() {
-        return section;
-    }
+    public String getEmail(){ return email;}
+
+    public String getPrenom () { return this.prenom;   }
 
     public void setId(int id) {
         this.id = id;
@@ -43,14 +65,39 @@ public class UtilisateurModel implements Serializable {
         this.matricule = matricule;
     }
 
-    public void setSection(String section) {
-        this.section = section;
+    public void setEmail (String email) { this.email = email;   }
+
+    public void setDateDeNaissance (String dateDeNaissance){
+        this.dateDeNaissance=dateDeNaissance;
     }
 
-    public UtilisateurModel(int id, String nom, String matricule, String section) {
+    public void setDateDeNaissance (int annee, int mois, int jour){
+        this.dateDeNaissance=annee+"-"+mois+"-"+jour;
+    }
+
+    public void setPrenom (String prenom) { this.prenom = prenom;   }
+
+    public UtilisateurModel(int id, String nom, String prenom, String matricule, String email , String dateDeNaissance, String type) {
         this.id = id;
         this.nom = nom;
         this.matricule = matricule;
-        this.section = section;
+        this.email = email;
+        this.prenom = prenom;
+        this.dateDeNaissance = dateDeNaissance;
+        this.logins=new ArrayList<LoginModel>();
+        this.profils= new ArrayList<ProfilModel>();
+        this.type=type;
+    }
+
+    public String getDateDeNaissance() {
+        return dateDeNaissance;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
