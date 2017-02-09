@@ -37,7 +37,7 @@ public class UserDetail extends AppCompatActivity{
 
         tvMatricule.setText(utilisateurModel.getMatricule());
         tvName.setText(utilisateurModel.getNom());
-        tvSection.setText(utilisateurModel.getSection());
+        //tvSection.setText(utilisateurModel.getSection());
 
         deluserButton.setOnClickListener(deleteUser);
         updateuserButton.setOnClickListener(updateUser);
