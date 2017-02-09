@@ -72,9 +72,9 @@ public class MenuLogiciel extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                                ((TextView) findViewById(R.id.matricule)).setText("Service Hors Ligne");
+                          //      ((TextView) findViewById(R.id.matricule)).setText("Service Hors Ligne");
                             } else {
-                                ((TextView) findViewById(R.id.matricule)).setText("Matricule inexistant");
+                          //      ((TextView) findViewById(R.id.matricule)).setText("Matricule inexistant");
                             }
 
                         }
