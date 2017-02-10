@@ -12,6 +12,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.aubergineadmin.Controller.SuperControlleur;
+import com.example.aubergineadmin.Model.UtilisateurModel;
 import com.example.aubergineadmin.R;
 
 import org.json.JSONObject;
@@ -23,12 +25,16 @@ import org.json.JSONObject;
 public class UserAdd extends AppCompatActivity {
     private static Button adduserButton;
     private static Button retourButton;
+    private SuperControlleur superControlleur;
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ajout_user);
+
+        this.superControlleur = SuperControlleur.getInstance(this);
+
         adduserButton = (Button) findViewById(R.id.add_user);
         adduserButton.setOnClickListener(addUser);
 
@@ -38,40 +44,23 @@ public class UserAdd extends AppCompatActivity {
     }
 
     private View.OnClickListener addUser = new View.OnClickListener() {
-     //   String matricule = ((TextView) findViewById(R.id.usermatriculeadd)).toString();
-     //   String section = ((TextView) findViewById(R.id.usersectionadd)).toString();
-     //   String nom = ((TextView) findViewById(R.id.usernameadd)).toString();
+        String matricule = ((TextView) findViewById(R.id.usermatriculeadd)).toString();
+        String section = ((TextView) findViewById(R.id.usersectionadd)).toString();
+        String nom = ((TextView) findViewById(R.id.usernameadd)).toString();
 
         //on crée une string ac un certain format
 
         @Override
         public void onClick(View view) {
-            JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                    (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
+            UtilisateurModel usr = new UtilisateurModel(matricule, section, nom);
 
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            System.out.print(error);
-                            if (error.networkResponse == null) {
-                                // ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
-
-                            } else {
-                                //((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
-                            }
-
-                        }
-                    });
+            superControlleur.insertUser(usr);
         }
 
     };
 
 
-    public View.OnClickListener retourL = new View.OnClickListener(){
+    public View.OnClickListener retourL = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             System.out.println("bonjour");

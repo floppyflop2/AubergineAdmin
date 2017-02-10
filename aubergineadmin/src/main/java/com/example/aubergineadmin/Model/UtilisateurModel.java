@@ -20,7 +20,7 @@ public class UtilisateurModel implements Serializable {
     private String type;
     private List<LoginModel> logins;
     private List<ProfilModel> profils;
-    private int section;
+    private String section;
 
     public List<LoginModel> getLogins() {
         return logins;
@@ -78,6 +78,12 @@ public class UtilisateurModel implements Serializable {
 
     public void setPrenom (String prenom) { this.prenom = prenom;   }
 
+    public UtilisateurModel(String nom, String matricule, String section) {
+        this.nom = nom;
+        this.matricule = matricule;
+        this.section = section;
+    }
+
     public UtilisateurModel(int id, String nom, String prenom, String matricule, String email , String dateDeNaissance, String type) {
         this.id = id;
         this.nom = nom;
@@ -102,7 +108,11 @@ public class UtilisateurModel implements Serializable {
         this.type = type;
     }
 
-    public int getSection() {
+    public String getSection() {
         return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
     }
 }

@@ -164,7 +164,7 @@ public class SuperControlleur {
                 });
         MySingleton.getInstance(context).addToRequestQueue(jsObjRequest);
     }
-    public void insertUser(UtilisateurModel InsertMoi,final String message){
+    public void insertUser(UtilisateurModel InsertMoi){
         JSONObject jsonEnvoie=null;
         try {
             jsonEnvoie = new JSONObject("{\"matricule\":\""+InsertMoi.getMatricule()+"\",\"nom\":\""+InsertMoi.getNom()

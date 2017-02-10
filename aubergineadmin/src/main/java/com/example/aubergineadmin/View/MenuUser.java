@@ -14,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.aubergineadmin.Controller.SuperControlleur;
 import com.example.aubergineadmin.Model.UtilisateurModel;
 import com.example.aubergineadmin.MySingleton;
 import com.example.aubergineadmin.R;
@@ -36,6 +37,7 @@ public class MenuUser extends AppCompatActivity {
     ArrayList<UtilisateurModel> utilisateurs = new ArrayList<>();
     private static Button retourButton;
     private static Button adduserButton;
+    private SuperControlleur superControlleur;
 
     public MenuUser() {
         super();
@@ -48,6 +50,9 @@ public class MenuUser extends AppCompatActivity {
 
         adduserButton = (Button) findViewById(R.id.add_user);
         adduserButton.setOnClickListener(addUser);
+
+        this.superControlleur = SuperControlleur.getInstance(this);
+        superControlleur.getAllUsers(utilisateurs);
 
         ListView lvUser = (ListView) findViewById(R.id.student_list);
         lvUser.setAdapter(new UserAdapter(this, utilisateurs));

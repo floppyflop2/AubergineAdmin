@@ -14,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.aubergineadmin.Controller.SuperControlleur;
 import com.example.aubergineadmin.Model.LogicielModel;
 import com.example.aubergineadmin.Model.UtilisateurModel;
 import com.example.aubergineadmin.R;
@@ -32,6 +33,7 @@ public class MenuLogiciel extends AppCompatActivity {
     private LogicielModel logicielCourant;
     private ArrayList<LogicielModel> logiciels = new ArrayList<>();
     public static Button retourButton;
+
     //public static Button addLogicielButton;
 
     public MenuLogiciel(){
@@ -52,6 +54,8 @@ public class MenuLogiciel extends AppCompatActivity {
         ListView lvLogiciel = (ListView) findViewById(R.id.list_logiciel);
         lvLogiciel.setAdapter(new LogicielAdatpter(this,logiciels));
         lvLogiciel.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) listLogicielListener);
+
+
 
         MenuLogiciel.retourButton = (Button)findViewById(R.id.retourLog);
         retourButton.setOnClickListener(retourL);
