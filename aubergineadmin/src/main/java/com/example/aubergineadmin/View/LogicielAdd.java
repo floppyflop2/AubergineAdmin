@@ -1,5 +1,6 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,24 +26,24 @@ public class LogicielAdd extends AppCompatActivity {
 
 
     public LogicielAdd() {
-        this.addLogiciel = addLogiciel;
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.ajout_logiciel);
 
         addlogicielButton = (Button) findViewById(R.id.add_logiciel);
         addlogicielButton.setOnClickListener(addLogiciel);
 
         retourButton= (Button)findViewById(R.id.retourLog);
         retourButton.setOnClickListener(retourL);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
 
     }
 
     private View.OnClickListener addLogiciel = new View.OnClickListener() {
-        String intitule = ((TextView) findViewById(R.id.intituleadd)).toString();
+        //String intitule = ((TextView) findViewById(R.id.intituleadd)).toString();
 
         //on crée une string ac un certain format
 
@@ -72,11 +73,14 @@ public class LogicielAdd extends AppCompatActivity {
 
     };
 
-    private View.OnClickListener retourL = new View.OnClickListener() {
+    public View.OnClickListener retourL = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             System.out.println("bonjour");
-            setContentView(R.layout.activity_main_admin);
+            Intent intentMaML = new Intent();
+            intentMaML.setClass(LogicielAdd.this, MenuLogiciel.class);
+            startActivity(intentMaML);
+
         }
     };
 }

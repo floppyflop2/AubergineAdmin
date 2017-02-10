@@ -6,7 +6,7 @@
 
 
     <TextView
-        android:id="@+id/titre_logiciel"
+        android:id="@+id/titre_profil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffff"
@@ -17,6 +17,12 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/del_profil"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/update_profil"/>
+
 
     <Button
         android:id="@+id/retourPro"

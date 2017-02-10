@@ -1,5 +1,6 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,10 @@ import com.example.aubergineadmin.R;
 
 
 public class MainAdminActivity extends AppCompatActivity {
-    MenuLogiciel menuLogiciel;
+    private MenuLogiciel menuLogiciel;
+    private MenuProfil menuProfil;
+    private MenuUser menuUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,13 +25,23 @@ public class MainAdminActivity extends AppCompatActivity {
         findViewById(R.id.nav_profil).setOnClickListener(onClickProfil);
 
         findViewById(R.id.nav_logiciel).setOnClickListener(onClickLogiciel);
-        menuLogiciel=new MenuLogiciel();
+        this.menuLogiciel = new MenuLogiciel();
+        this.menuProfil = new MenuProfil();
+        this.menuUser = new MenuUser();
+
     }
 
     private View.OnClickListener onClickUser = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            setContentView(R.layout.menu_user);
+
+
+
+            Intent intentMaMu = new Intent();
+            intentMaMu.setClass(MainAdminActivity.this, MenuUser.class);
+            startActivity(intentMaMu);
+
+
         }
     };
 
@@ -35,15 +49,30 @@ public class MainAdminActivity extends AppCompatActivity {
     private View.OnClickListener onClickProfil = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            setContentView(R.layout.menu_profil);
+
+
+            Intent intentMaPro = new Intent();
+            intentMaPro.setClass(MainAdminActivity.this, MenuProfil.class);
+            startActivity(intentMaPro);
+
         }
     };
+
+
 
     private View.OnClickListener onClickLogiciel = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             System.out.println("logiciel");
-            setContentView(R.layout.menu_logiciel);
+
+
+            Intent intentMaML = new Intent();
+            intentMaML.setClass(MainAdminActivity.this, MenuLogiciel.class);
+            startActivity(intentMaML);
+
+
+
+
         }
     };
 

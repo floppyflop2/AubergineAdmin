@@ -1,5 +1,6 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class UserAdd extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.ajout_user);
         adduserButton = (Button) findViewById(R.id.add_user);
         adduserButton.setOnClickListener(addUser);
 
@@ -37,9 +38,9 @@ public class UserAdd extends AppCompatActivity {
     }
 
     private View.OnClickListener addUser = new View.OnClickListener() {
-        String matricule = ((TextView) findViewById(R.id.usermatriculeadd)).toString();
-        String section = ((TextView) findViewById(R.id.usersectionadd)).toString();
-        String nom = ((TextView) findViewById(R.id.usernameadd)).toString();
+     //   String matricule = ((TextView) findViewById(R.id.usermatriculeadd)).toString();
+     //   String section = ((TextView) findViewById(R.id.usersectionadd)).toString();
+     //   String nom = ((TextView) findViewById(R.id.usernameadd)).toString();
 
         //on crée une string ac un certain format
 
@@ -70,11 +71,14 @@ public class UserAdd extends AppCompatActivity {
     };
 
 
-    private View.OnClickListener retourL = new View.OnClickListener() {
+    public View.OnClickListener retourL = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             System.out.println("bonjour");
-            setContentView(R.layout.activity_main_admin);
+            Intent intentMaMu = new Intent();
+            intentMaMu.setClass(UserAdd.this, MenuUser.class);
+            startActivity(intentMaMu);
+
         }
     };
 

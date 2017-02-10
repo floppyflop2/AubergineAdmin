@@ -1,5 +1,6 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -29,8 +30,18 @@ public class LogicielDetail extends AppCompatActivity {
     private LogicielModel logicielModel;
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
 
+    public LogicielDetail() {
+        super();
+    }
+
     public LogicielDetail(LogicielModel logicielModel) {
         this.logicielModel=logicielModel;
+
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         delLogicielButton = (Button) findViewById(R.id.del_logiciel);
         delLogicielButton.setOnClickListener(deleteLogiciel);
@@ -41,16 +52,11 @@ public class LogicielDetail extends AppCompatActivity {
         retourButton= (Button)findViewById(R.id.retourLog);
         retourButton.setOnClickListener(retourL);
     }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
     //d
 
 
     private View.OnClickListener deleteLogiciel = new View.OnClickListener() {
-        String logiciel = ((TextView) findViewById(R.id.titre_logiciel)).toString();
+        String logiciel = ((TextView) findViewById(R.id.nameLogiciel)).toString();
 
         @Override
         public void onClick(View view) {
@@ -78,7 +84,7 @@ public class LogicielDetail extends AppCompatActivity {
     };
 
     private View.OnClickListener updateLogiciel = new View.OnClickListener() {
-        String logiciel = ((TextView) findViewById(R.id.titre_logiciel)).toString();
+        String logiciel = ((TextView) findViewById(R.id.nameLogiciel)).toString();
 
         @Override
         public void onClick(View view) {
@@ -94,9 +100,9 @@ public class LogicielDetail extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
                             System.out.print(error);
                             if (error.networkResponse == null) {
-                                ((TextView) findViewById(R.id.erreur)).setText("Service Hors Ligne");
+                                //((TextView) findViewById(R.id.erreur)).setText("Service Hors Ligne");
                             } else {
-                                ((TextView) findViewById(R.id.erreur)).setText("Matricule inexistant");
+                                //((TextView) findViewById(R.id.erreur)).setText("Matricule inexistant");
                             }
 
                         }
@@ -105,12 +111,14 @@ public class LogicielDetail extends AppCompatActivity {
     };
 
 
-    private View.OnClickListener retourL = new View.OnClickListener() {
+    public View.OnClickListener retourL = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             System.out.println("bonjour");
-            setContentView(R.layout.activity_main_admin);
+            Intent intentMaML = new Intent();
+            intentMaML.setClass(LogicielDetail.this, MenuLogiciel.class);
+            startActivity(intentMaML);
+
         }
     };
-
 }

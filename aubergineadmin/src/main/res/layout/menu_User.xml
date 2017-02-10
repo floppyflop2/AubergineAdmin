@@ -8,19 +8,21 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:weightSum="1">
 
         <ListView
-            android:id="@+id/lines"
+            android:id="@+id/student_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="263dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:divider="@null"
             android:dividerHeight="5dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_weight="1.02" />
 
         <Button
             android:id="@+id/add_user"
@@ -28,7 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/titre_user"
             android:textColor="#ffff"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:text="ajouter Utilisateur"
+            app:text="ajouter Utilisateur" />
 
         <Button
             android:id="@+id/retourUs"

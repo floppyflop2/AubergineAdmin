@@ -1,5 +1,6 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,14 @@ public class MenuUser extends AppCompatActivity {
     private static Button adduserButton;
 
     public MenuUser() {
+        super();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.menu_user);
+
         adduserButton = (Button) findViewById(R.id.add_user);
         adduserButton.setOnClickListener(addUser);
 
@@ -47,22 +56,14 @@ public class MenuUser extends AppCompatActivity {
         retourButton.setOnClickListener(retourL);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
     private View.OnClickListener addUser = new View.OnClickListener() {
-        String matricule = ((TextView) findViewById(R.id.usermatriculeadd)).toString();
-        String section = ((TextView) findViewById(R.id.usersectionadd)).toString();
-        String nom = ((TextView) findViewById(R.id.usernameadd)).toString();
-
-        //on crée une string ac un certain format
-
         @Override
         public void onClick(View view) {
-            setContentView(R.layout.ajout_user);
+            System.out.println("bonjour");
+            Intent intentMaAdu = new Intent();
+            intentMaAdu.setClass(MenuUser.this, UserAdd.class);
+            startActivity(intentMaAdu);
+
         }
     };
 
@@ -82,10 +83,14 @@ public class MenuUser extends AppCompatActivity {
 
     };
 
-    private View.OnClickListener retourL = new View.OnClickListener() {
+    public View.OnClickListener retourL = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
-            setContentView(R.layout.activity_main_admin);
+            System.out.println("bonjour");
+            Intent intentMaMu = new Intent();
+            intentMaMu.setClass(MenuUser.this, MainAdminActivity.class);
+            startActivity(intentMaMu);
+
         }
     };
 

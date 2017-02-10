@@ -7,30 +7,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/list_logiciel"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:divider="@null"
-        android:dividerHeight="5dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:weightSum="1">
 
-    <Button
-        android:id="@+id/add_logiciel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#ffff"
-        android:textStyle="italic" />
+        <ListView
+            android:id="@+id/list_logiciel"
+            android:layout_width="match_parent"
+            android:layout_height="309dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:divider="@null"
+            android:dividerHeight="5dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_weight="1.01" />
 
-    <Button
-        android:id="@+id/retourLog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Retour"
-        android:textColor="#ffff"
-        android:textStyle="italic" />
+        <Button
+            android:id="@+id/add_logiciel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:textStyle="italic"
+            android:text="ajout Logiciel"
+            app:text="ajout Logiciel" />
+
+        <Button
+            android:id="@+id/retourLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Retour"
+            android:textColor="#ffff"
+            android:textStyle="italic" />
+    </LinearLayout>
 
 
 </RelativeLayout>

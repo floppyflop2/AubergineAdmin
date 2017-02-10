@@ -1,5 +1,6 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,51 +26,41 @@ public class MenuProfil extends AppCompatActivity{
     private static   Button addProfilButton;
 
     public MenuProfil() {
-        addProfilButton = (Button) findViewById(R.id.add_profil);
-        addProfilButton.setOnClickListener(addProfil);
-        retourButton = (Button) findViewById(R.id.retourPro);
-        retourButton.setOnClickListener(retourL);
+        super();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.menu_profil);
+        addProfilButton = (Button) findViewById(R.id.add_profil);
+        addProfilButton.setOnClickListener(addProfil);
+        retourButton = (Button) findViewById(R.id.retourPro);
+        retourButton.setOnClickListener(retourL);
 
     }
 
 
 
     private View.OnClickListener addProfil = new View.OnClickListener() {
-        String profil = ((TextView)findViewById(R.id.titre_profil)).toString();
+
         @Override
         public void onClick(View view) {
-            JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                    (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            System.out.print(error);
-                            if (error.networkResponse == null) {
-                         //       ((TextView)findViewById(R.id.matricule)).setText("Service Hors Ligne");
-                            } else {
-                           //     ((TextView)findViewById(R.id.matricule)).setText("Matricule inexistant");
-                            }
-
-                        }
-                    });
+            Intent intentMaAdP = new Intent();
+            intentMaAdP.setClass(MenuProfil.this, ProfilAdd.class);
+            startActivity(intentMaAdP);
         }
     };
 
 
-    private View.OnClickListener retourL = new View.OnClickListener(){
+    public View.OnClickListener retourL = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
-            setContentView(R.layout.activity_main_admin);
+            System.out.println("bonjour");
+            Intent intentMaPro = new Intent();
+            intentMaPro.setClass(MenuProfil.this, MainAdminActivity.class);
+            startActivity(intentMaPro);
+
         }
     };
 }

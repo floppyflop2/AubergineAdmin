@@ -1,5 +1,6 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -29,8 +30,18 @@ public class UserDetail extends AppCompatActivity{
     private UtilisateurModel utilisateurModel;
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
 
+    public UserDetail() {
+        super();
+    }
+
     public UserDetail(UtilisateurModel utilisateurModel){
         this.utilisateurModel=utilisateurModel;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         TextView tvMatricule = (TextView) findViewById(R.id.usermatricule);
         TextView tvName = (TextView) findViewById(R.id.username);
         TextView tvSection = (TextView) findViewById(R.id.usersection);
@@ -43,12 +54,6 @@ public class UserDetail extends AppCompatActivity{
         updateuserButton.setOnClickListener(updateUser);
         retourButton= (Button)findViewById(R.id.retourUs);
         retourButton.setOnClickListener(retourL);
-
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
     }
 
@@ -112,11 +117,14 @@ public class UserDetail extends AppCompatActivity{
     };
 
 
-    private View.OnClickListener retourL = new View.OnClickListener() {
+    public View.OnClickListener retourL = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             System.out.println("bonjour");
-            setContentView(R.layout.activity_main_admin);
+            Intent intentMaMu = new Intent();
+            intentMaMu.setClass(UserDetail.this, MenuUser.class);
+            startActivity(intentMaMu);
+
         }
     };
 

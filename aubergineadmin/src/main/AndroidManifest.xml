@@ -11,6 +11,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".View.MenuLogiciel"/>
+        <activity android:name=".View.LogicielAdd"/>
+        <activity android:name=".View.LogicielDetail"/>
+
+        <activity android:name=".View.MenuUser"/>
+        <activity android:name=".View.UserAdd"/>
+        <activity android:name=".View.UserDetail"/>
+
+        <activity android:name=".View.MenuProfil"/>
+        <activity android:name=".View.ProfilAdd"/>
+        <activity android:name=".View.ProfilDetail"/>
+
+
+
+
+
     </application>
 
 </manifest>

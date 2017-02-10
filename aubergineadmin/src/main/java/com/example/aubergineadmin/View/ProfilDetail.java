@@ -1,5 +1,8 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -26,9 +29,18 @@ public class ProfilDetail extends AppCompatActivity {
     private ProfilModel profil;
     public static String url = "http://fierce-basin-74883.herokuapp.com/api";
 
+    public ProfilDetail() {
+        super();
+    }
 
     public ProfilDetail(ProfilModel profilModel) {
         this.profil=profilModel;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         delProfilButton = (Button) findViewById(R.id.del_profil);
         delProfilButton.setOnClickListener(deleteProfil);
 
@@ -38,9 +50,7 @@ public class ProfilDetail extends AppCompatActivity {
         findViewById(R.id.retourPro).setOnClickListener(retourL);
         retourButton = (Button) findViewById(R.id.retourPro);
         retourButton.setOnClickListener(retourL);
-
     }
-
 
     private View.OnClickListener deleteProfil = new View.OnClickListener() {
         String profil = ((TextView) findViewById(R.id.titre_profil)).toString();
@@ -96,10 +106,14 @@ public class ProfilDetail extends AppCompatActivity {
         }
     };
 
-    private View.OnClickListener retourL = new View.OnClickListener() {
+    public View.OnClickListener retourL = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
-            setContentView(R.layout.activity_main_admin);
+            System.out.println("bonjour");
+            Intent intentMaML = new Intent();
+            intentMaML.setClass(ProfilDetail.this, MenuProfil.class);
+            startActivity(intentMaML);
+
         }
     };
 }

@@ -20,6 +20,7 @@ public class UtilisateurModel implements Serializable {
     private String type;
     private List<LoginModel> logins;
     private List<ProfilModel> profils;
+    private int section;
 
     public List<LoginModel> getLogins() {
         return logins;
@@ -99,5 +100,9 @@ public class UtilisateurModel implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getSection() {
+        return section;
     }
 }

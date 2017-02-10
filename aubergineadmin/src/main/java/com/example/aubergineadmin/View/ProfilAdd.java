@@ -1,5 +1,8 @@
 package com.example.aubergineadmin.View;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +26,10 @@ public class ProfilAdd extends AppCompatActivity {
     private static Button buttonAddProfil;
     private static Button retourButton;
 
-    public ProfilAdd() {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.ajout_profil);
         buttonAddProfil = (Button) findViewById(R.id.add_profil);
         buttonAddProfil.setOnClickListener(addProfil);
 
@@ -31,16 +37,23 @@ public class ProfilAdd extends AppCompatActivity {
         retourButton.setOnClickListener(retourL);
     }
 
-    private View.OnClickListener retourL = new View.OnClickListener() {
+    public ProfilAdd() {
+
+    }
+
+    public View.OnClickListener retourL = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             System.out.println("bonjour");
-            setContentView(R.layout.activity_main_admin);
+            Intent intentMaML = new Intent();
+            intentMaML.setClass(ProfilAdd.this, MenuProfil.class);
+            startActivity(intentMaML);
+
         }
     };
 
     private View.OnClickListener addProfil = new View.OnClickListener() {
-        String intitule = ((TextView) findViewById(R.id.intitule_profiladd)).toString();
+      //  String intitule = ((TextView) findViewById(R.id.intitule_profiladd)).toString();
 
         //on crée une string ac un certain format
         @Override
